@@ -70,6 +70,10 @@ public interface LottieProperty {
   /** In Px */
   PointF TRANSFORM_POSITION = new PointF();
   /** In Px */
+  Float TRANSFORM_POSITION_X = 15F;
+  /** In Px */
+  Float TRANSFORM_POSITION_Y = 16F;
+  /** In Px */
   PointF ELLIPSE_SIZE = new PointF();
   /** In Px */
   PointF RECTANGLE_SIZE = new PointF();

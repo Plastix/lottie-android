@@ -17,6 +17,8 @@ import static com.airbnb.lottie.LottieProperty.TRANSFORM_ANCHOR_POINT;
 import static com.airbnb.lottie.LottieProperty.TRANSFORM_END_OPACITY;
 import static com.airbnb.lottie.LottieProperty.TRANSFORM_OPACITY;
 import static com.airbnb.lottie.LottieProperty.TRANSFORM_POSITION;
+import static com.airbnb.lottie.LottieProperty.TRANSFORM_POSITION_X;
+import static com.airbnb.lottie.LottieProperty.TRANSFORM_POSITION_Y;
 import static com.airbnb.lottie.LottieProperty.TRANSFORM_ROTATION;
 import static com.airbnb.lottie.LottieProperty.TRANSFORM_SCALE;
 import static com.airbnb.lottie.LottieProperty.TRANSFORM_SKEW;
@@ -277,6 +279,16 @@ public class TransformKeyframeAnimation {
         position = new ValueCallbackKeyframeAnimation(callback, new PointF());
       } else {
         position.setValueCallback((LottieValueCallback<PointF>) callback);
+      }
+    } else if(property == TRANSFORM_POSITION_X) {
+      if (position instanceof SplitDimensionPathKeyframeAnimation) {
+        ((SplitDimensionPathKeyframeAnimation) position).setXValueCallback(
+                (LottieValueCallback<Float>) callback);
+      }
+    } else if(property == TRANSFORM_POSITION_Y) {
+      if (position instanceof SplitDimensionPathKeyframeAnimation) {
+        ((SplitDimensionPathKeyframeAnimation) position).setYValueCallback(
+                (LottieValueCallback<Float>) callback);
       }
     } else if (property == TRANSFORM_SCALE) {
       if (scale == null) {

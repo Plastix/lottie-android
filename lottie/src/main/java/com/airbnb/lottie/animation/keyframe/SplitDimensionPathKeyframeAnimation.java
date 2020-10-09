@@ -3,8 +3,11 @@ package com.airbnb.lottie.animation.keyframe;
 import android.graphics.PointF;
 
 import com.airbnb.lottie.value.Keyframe;
+import com.airbnb.lottie.value.LottieValueCallback;
 
 import java.util.Collections;
+
+import androidx.annotation.Nullable;
 
 public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<PointF, PointF> {
   private final PointF point = new PointF();
@@ -31,7 +34,15 @@ public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<P
     }
   }
 
-  @Override public PointF getValue() {
+    public void setXValueCallback(@Nullable LottieValueCallback<Float> valueCallback) {
+        xAnimation.setValueCallback(valueCallback);
+    }
+
+    public void setYValueCallback(@Nullable LottieValueCallback<Float> valueCallback) {
+        yAnimation.setValueCallback(valueCallback);
+    }
+
+    @Override public PointF getValue() {
     return getValue(null, 0);
   }
 
